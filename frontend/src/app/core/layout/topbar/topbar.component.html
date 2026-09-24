@@ -1,0 +1,13 @@
+<header class="topbar">
+  <div>
+    <h1 class="topbar__title">Supervision du parc</h1>
+    <p class="topbar__subtitle">Vue d'ensemble en temps réel des compteurs communicants</p>
+  </div>
+
+  <div class="topbar__right">
+    @if (auth.currentUser(); as user) {
+      <span class="topbar__user">{{ user.fullName }}</span>
+    }
+    <button class="topbar__logout" (click)="logout()">Se déconnecter</button>
+  </div>
+</header>

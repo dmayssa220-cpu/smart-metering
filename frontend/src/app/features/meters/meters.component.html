@@ -1,0 +1,37 @@
+<section class="panel">
+  <h2 class="panel__title">Parc de compteurs</h2>
+
+  @if (meters.length === 0) {
+    <p class="empty">
+      Aucun compteur enregistré. Ajoutez-en un via l'API
+      (<code>POST /api/meters</code>) pour le voir apparaître ici.
+    </p>
+  } @else {
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>N° série</th>
+            <th>Type</th>
+            <th>Site</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (m of meters; track m.id) {
+            <tr>
+              <td class="mono">{{ m.serialNumber }}</td>
+              <td>{{ m.type }}</td>
+              <td>{{ m.siteName }}</td>
+              <td>
+                <span class="status" [class]="'status--' + m.status.toLowerCase()">
+                  {{ m.status }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

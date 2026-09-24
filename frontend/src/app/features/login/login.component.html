@@ -1,0 +1,33 @@
+<div class="login">
+  <form class="login__card" (ngSubmit)="submit()">
+    <div class="login__brand">
+      <span class="login__brand-mark">SM</span>
+      <span>Smart Metering</span>
+    </div>
+
+    <h1 class="login__title">Connexion</h1>
+    <p class="login__subtitle">Accédez à la supervision du parc de compteurs.</p>
+
+    <label class="field">
+      <span>Email</span>
+      <input type="email" name="email" [(ngModel)]="email" required autocomplete="username" />
+    </label>
+
+    <label class="field">
+      <span>Mot de passe</span>
+      <input type="password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
+    </label>
+
+    @if (errorMessage) {
+      <p class="login__error">{{ errorMessage }}</p>
+    }
+
+    <button type="submit" class="login__submit" [disabled]="loading">
+      {{ loading ? 'Connexion…' : 'Se connecter' }}
+    </button>
+
+    <p class="login__hint">
+      Compte de démonstration : <code>admin&#64;smartmetering.local</code> / <code>Admin123!</code>
+    </p>
+  </form>
+</div>

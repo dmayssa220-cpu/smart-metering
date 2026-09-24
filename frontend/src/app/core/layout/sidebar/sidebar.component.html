@@ -1,0 +1,17 @@
+<nav class="sidebar">
+  <div class="sidebar__brand">
+    <span class="sidebar__brand-mark">SM</span>
+    <span class="sidebar__brand-name">Smart&nbsp;Metering</span>
+  </div>
+
+  <ul class="sidebar__nav">
+    @for (item of navItems; track item.path) {
+      <li>
+        <a [routerLink]="item.path" routerLinkActive="is-active" class="sidebar__link">
+          <span class="sidebar__dot" aria-hidden="true"></span>
+          {{ item.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

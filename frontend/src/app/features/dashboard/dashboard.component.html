@@ -1,0 +1,42 @@
+<section class="kpis">
+  <div class="kpi">
+    <span class="kpi__label">Compteurs actifs</span>
+    <span class="kpi__value">{{ activeCount }}</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Parc total</span>
+    <span class="kpi__value">{{ meters.length }}</span>
+  </div>
+  <div class="kpi kpi--warning">
+    <span class="kpi__label">En panne</span>
+    <span class="kpi__value">{{ faultyCount }}</span>
+  </div>
+  <div class="kpi kpi--critical">
+    <span class="kpi__label">Alertes non traitées</span>
+    <span class="kpi__value">{{ alerts.length }}</span>
+  </div>
+</section>
+
+<section class="panel">
+  <h2 class="panel__title">Consommation — dernières 12 heures</h2>
+  <div class="chart">
+    @for (v of consumptionSample; track $index) {
+      <div class="chart__bar" [style.height.%]="barHeight(v)"></div>
+    }
+  </div>
+</section>
+
+<section class="panel">
+  <h2 class="panel__title">Alertes récentes</h2>
+  @if (alerts.length === 0) {
+    <p class="empty">Aucune alerte non traitée pour le moment.</p>
+  } @else {
+    <ul class="alert-list">
+      @for (a of alerts; track a.id) {
+        <li class="alert-list__item" [class]="'severity-' + a.severity.toLowerCase()">
+          {{ a.message }}
+        </li>
+      }
+    </ul>
+  }
+</section>

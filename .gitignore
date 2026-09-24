@@ -1,0 +1,17 @@
+# Backend (.NET)
+backend/**/bin/
+backend/**/obj/
+
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# AI service (Python)
+ai-service/__pycache__/
+ai-service/*.pyc
+
+# Divers
+.env
+*.log
+.DS_Store

@@ -1,0 +1,23 @@
+<section class="panel">
+  <h2 class="panel__title">Alertes</h2>
+
+  @if (alerts.length === 0) {
+    <p class="empty">Aucune alerte enregistrée.</p>
+  } @else {
+    <ul class="alert-list">
+      @for (a of alerts; track a.id) {
+        <li class="alert-list__item" [class]="'severity-' + a.severity.toLowerCase()">
+          <div>
+            <p class="alert-list__message">{{ a.message }}</p>
+            <span class="alert-list__meta">{{ a.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+          </div>
+          @if (!a.acknowledged) {
+            <button class="btn" (click)="acknowledge(a.id)">Marquer comme traitée</button>
+          } @else {
+            <span class="alert-list__done">Traitée</span>
+          }
+        </li>
+      }
+    </ul>
+  }
+</section>
