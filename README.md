@@ -91,10 +91,4 @@ smart-metering-app/
 └── database/                     # README (schéma géré par EF Core)
 ```
 
-## Prochaines étapes suggérées
 
-1. Passer d'`EnsureCreated()` à de vraies migrations EF Core versionnées (voir ci-dessus).
-2. Ajouter la gestion des rôles côté UI (masquer certaines actions aux Techniciens, par exemple) et un écran d'inscription/admin des utilisateurs.
-3. Remplacer la prédiction naïve du service IA par un modèle ML.NET entraîné ou un modèle Ollama local.
-4. Ajouter un pipeline CI (GitHub Actions, gratuit) pour builder et pousser les images Docker.
-5. Pour un déploiement cloud gratuit : Azure for Students, Oracle Cloud Always Free, ou Render/Railway (offres gratuites).
